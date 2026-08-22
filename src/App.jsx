@@ -1,12 +1,13 @@
 import { HabitForm } from "./components/HabitForm";
 import { Header } from "./components/Header";
+import { HabitProvider } from "./context/HabitContext";
 
 function App() {
   return (
-    <div>
+    <HabitProvider>
       <Header />
       <HabitForm />
-    </div>
+    </HabitProvider>
   );
 }
 

@@ -1,4 +1,5 @@
 import { HabitForm } from "./components/HabitForm";
+import { HabitList } from "./components/HabitList";
 import { Header } from "./components/Header";
 import { HabitProvider } from "./context/HabitContext";
 
@@ -7,6 +8,7 @@ function App() {
     <HabitProvider>
       <Header />
       <HabitForm />
+      <HabitList />
     </HabitProvider>
   );
 }

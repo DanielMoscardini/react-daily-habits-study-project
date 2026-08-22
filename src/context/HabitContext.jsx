@@ -5,8 +5,18 @@ const HabitContext = createContext();
 export const HabitProvider = ({ children }) => {
   const [habits, setHabits] = useState([]);
 
+  const addHabit = (name) => {
+    const newHabit = {
+      id: crypto.randomUUID(),
+      name,
+      count: 0,
+    };
+
+    setHabits((prev) => [...prev, newHabit]);
+  };
+
   return (
-    <HabitContext.Provider value={{ habits, setHabits }}>
+    <HabitContext.Provider value={{ habits, addHabit }}>
       {children}
     </HabitContext.Provider>
   );

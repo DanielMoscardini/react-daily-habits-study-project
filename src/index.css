@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+:root {
+  --bg-dark-principal: #1e1e2e;
+  --bg-dark-classico: #121212;
+
+  --neon-blue: #00bfff;
+  --neon-purple: #9d4edd;
+  --neon-green: #00ff9f;
+  --neon-red: #ff005c;
+
+  --text-main: #e0e0e0;
+  --text-secondary: #b0b0b0;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--bg-dark-principal);
+}

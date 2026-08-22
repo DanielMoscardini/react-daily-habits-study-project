@@ -15,8 +15,38 @@ export const HabitProvider = ({ children }) => {
     setHabits((prev) => [...prev, newHabit]);
   };
 
+  const incrementHabitCount = (id) => {
+    setHabits((prev) =>
+      prev.map((habit) =>
+        habit.id === id ? { ...habit, count: habit.count + 1 } : habit,
+      ),
+    );
+  };
+
+  const decrementHabitCount = (id) => {
+    setHabits((prev) =>
+      prev.map((habit) =>
+        habit.id === id && habit.count > 0
+          ? { ...habit, count: habit.count - 1 }
+          : habit,
+      ),
+    );
+  };
+
+  const deleteHabit = (id) => {
+    setHabits((prev) => prev.filter((habit) => habit.id !== id));
+  };
+
   return (
-    <HabitContext.Provider value={{ habits, addHabit }}>
+    <HabitContext.Provider
+      value={{
+        habits,
+        addHabit,
+        incrementHabitCount,
+        decrementHabitCount,
+        deleteHabit,
+      }}
+    >
       {children}
     </HabitContext.Provider>
   );

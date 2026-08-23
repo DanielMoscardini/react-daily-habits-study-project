@@ -1,9 +1,16 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const HabitContext = createContext();
 
 export const HabitProvider = ({ children }) => {
-  const [habits, setHabits] = useState([]);
+  const [habits, setHabits] = useState(() => {
+    const stored = localStorage.getItem("habits");
+    return stored ? JSON.parse(stored) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("habits", JSON.stringify(habits));
+  }, [habits]);
 
   const addHabit = (name) => {
     const newHabit = {

@@ -33,6 +33,14 @@ export const HabitProvider = ({ children }) => {
     );
   };
 
+  const editHabit = (id, newName) => {
+    setHabits((prev) =>
+      prev.map((habit) =>
+        habit.id === id ? { ...habit, name: newName } : habit,
+      ),
+    );
+  };
+
   const deleteHabit = (id) => {
     setHabits((prev) => prev.filter((habit) => habit.id !== id));
   };
@@ -44,6 +52,7 @@ export const HabitProvider = ({ children }) => {
         addHabit,
         incrementHabitCount,
         decrementHabitCount,
+        editHabit,
         deleteHabit,
       }}
     >
